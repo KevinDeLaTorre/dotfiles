@@ -105,3 +105,5 @@ fi
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
