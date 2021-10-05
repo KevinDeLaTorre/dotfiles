@@ -19,26 +19,36 @@ Plugin 'dracula/vim'                      " Adds 'dracula' colorscheme
 Plugin 'drewtempelmeyer/palenight.vim'    " Adds 'palenight' colorscheme
 Plugin 'nanotech/jellybeans.vim'          " Adds 'jellybeans' colorscheme
 
-" All plugins mest be added before the following line:
+" Languages
+Plugin 'elzr/vim-json'            " Adds extra JSON functionality
+Plugin 'kchmck/vim-coffee-script' " Adds coffeescript support
+Plugin 'MaxMEllon/vim-jsx-pretty' " Adds jsx functionality
+Plugin 'pangloss/vim-javascript'  " Adds extra javascript functionality
+Plugin 'vim-ruby/vim-ruby'        " Adds Ruby functions for vim
+
+" Frameworks
+Plugin 'posva/vim-vue'   " Adds vuejs functionality
+Plugin 'tpope/vim-rails' " Adds useful rails functions from within vim
+
+" General Plugins
 Plugin 'BufOnly.vim'                    " Adds a bufonly command that exits all buffers except current one
 Plugin 'chrisbra/matchit'               " Adds more matching functionality to % operator
 Plugin 'airblade/vim-gitgutter'         " Git diff symbols for vim
 Plugin 'alvan/vim-closetag'             " Automatically closes HTML tags
 Plugin 'jlanzarotta/bufexplorer'        " Easy to use buffer explorer for vim
 Plugin 'junegunn/vim-easy-align'        " Makes it easy to align text in multiple lines
+Plugin 'mattn/emmet-vim'                " Adds quick html tag abbreviation support
 Plugin 'ryanoasis/nerd-fonts'           " Adds some extra fonts to vim
 Plugin 'scrooloose/nerdtree'            " Easy to use file explorer
 Plugin 'tpope/vim-commentary'           " Easy way to comment out lines in vim
 Plugin 'tpope/vim-endwise'              " Adds end keyword to things that need it in ruby
 Plugin 'tpope/vim-fugitive'             " Git wrapper for vim
-Plugin 'tpope/vim-rails'                " Adds useful rails functions from within vim
 Plugin 'tpope/vim-repeat'               " Upgrades '.' functionality to allow it to repeat plugin map
 Plugin 'tpope/vim-sleuth'               " Automatically changes indent level to match current file
 Plugin 'tpope/vim-surround'             " Adds a lot of surrounding pairs functionality
 Plugin 'valloric/youcompleteme'         " Autocompleter for vim
 Plugin 'vim-airline/vim-airline'        " Cool status line
 Plugin 'vim-airline/vim-airline-themes' " Themes for airline
-Plugin 'vim-ruby/vim-ruby'              " Adds Ruby functions for vim
 Plugin 'w0rp/ale'                       " Lint Engine/Syntax checker
 
 " Need to load last
@@ -762,3 +772,9 @@ nmap <leader>rr :R<cr>
 
 " Switch to routes file (:einit)
 nmap <leader>ri :Einitializer<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-coffee-script
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto detects coffescripts
+au BufNewFile,BufRead *.coffee set filetype=coffee
