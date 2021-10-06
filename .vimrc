@@ -35,6 +35,7 @@ Plugin 'BufOnly.vim'                    " Adds a bufonly command that exits all 
 Plugin 'chrisbra/matchit'               " Adds more matching functionality to % operator
 Plugin 'airblade/vim-gitgutter'         " Git diff symbols for vim
 Plugin 'alvan/vim-closetag'             " Automatically closes HTML tags
+Plugin 'jiangmiao/auto-pairs'           " Auto closes parentheses, braces, brackets, etc'
 Plugin 'jlanzarotta/bufexplorer'        " Easy to use buffer explorer for vim
 Plugin 'junegunn/vim-easy-align'        " Makes it easy to align text in multiple lines
 Plugin 'mattn/emmet-vim'                " Adds quick html tag abbreviation support
@@ -778,3 +779,15 @@ nmap <leader>ri :Einitializer<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto detects coffescripts
 au BufNewFile,BufRead *.coffee set filetype=coffee
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YouCompleteMe
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_autoclose_preview_window_after_insertion = 1
+set completeopt-=preview
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => emmet-vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" redefine trigger key
+let g:user_emmet_leader_key=','
