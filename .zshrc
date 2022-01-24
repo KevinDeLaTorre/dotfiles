@@ -5,10 +5,11 @@ export TERM=xterm-256color
 # Set colorscheme for terminal
 eval "$(oh-my-posh --init --shell zsh --config ~/.poshthemes/kevin.omp.json)"
 
-cd ~
+# Start in home directory
+# cd ~
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/kevin/.oh-my-zsh"
+# export ZSH="/home/kevin/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -91,7 +92,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
