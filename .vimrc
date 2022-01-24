@@ -31,14 +31,16 @@ Plugin 'posva/vim-vue'   " Adds vuejs functionality
 Plugin 'tpope/vim-rails' " Adds useful rails functions from within vim
 
 " General Plugins
-Plugin 'BufOnly.vim'                    " Adds a bufonly command that exits all buffers except current one
-Plugin 'chrisbra/matchit'               " Adds more matching functionality to % operator
 Plugin 'airblade/vim-gitgutter'         " Git diff symbols for vim
 Plugin 'alvan/vim-closetag'             " Automatically closes HTML tags
+Plugin 'BufOnly.vim'                    " Adds a bufonly command that exits all buffers except current one
+Plugin 'chrisbra/matchit'               " Adds more matching functionality to % operator
 Plugin 'jiangmiao/auto-pairs'           " Auto closes parentheses, braces, brackets, etc'
 Plugin 'jlanzarotta/bufexplorer'        " Easy to use buffer explorer for vim
 Plugin 'junegunn/vim-easy-align'        " Makes it easy to align text in multiple lines
 Plugin 'mattn/emmet-vim'                " Adds quick html tag abbreviation support
+" Plugin 'prettier/vim-prettier'          " Code formatter
+Plugin 'astashov/vim-ruby-debugger'     " Adds a ruby debugger
 Plugin 'ryanoasis/nerd-fonts'           " Adds some extra fonts to vim
 Plugin 'scrooloose/nerdtree'            " Easy to use file explorer
 Plugin 'tpope/vim-commentary'           " Easy way to comment out lines in vim
@@ -171,6 +173,10 @@ set foldcolumn=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable 
+
+" Colorscheme
+set background=dark
+colorscheme dracula
 
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
@@ -434,16 +440,6 @@ endfunction
 "     set gfn=Monospace\ 11
 " endif
 
-" Disable scrollbars (real hackers don't use scrollbars for navigation!)
-" set guioptions-=r
-" set guioptions-=R
-" set guioptions-=l
-" set guioptions-=L
-
-" Colorscheme
-set background=dark
-colorscheme dracula
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -555,6 +551,8 @@ map <leader>p :cp<cr>
 " Make sure that enter is never overriden in the quickfix window
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
+" Disable cold folding
+set nofoldenable
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
@@ -615,7 +613,7 @@ au FileType python set indentkeys-=0#
 """"""""""""""""""""""""""""""
 " => JavaScript section
 """""""""""""""""""""""""""""""
-au FileType javascript call JavaScriptFold()
+"au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
 
@@ -625,26 +623,26 @@ au FileType javascript imap <c-a> alert();<esc>hi
 au FileType javascript inoremap <buffer> $r return 
 au FileType javascript inoremap <buffer> $f // --- PH<esc>FP2xi
 
-function! JavaScriptFold() 
-    setl foldmethod=syntax
-    setl foldlevelstart=1
-    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-
-    function! FoldText()
-        return substitute(getline(v:foldstart), '{.*', '{...}', '')
-    endfunction
-    setl foldtext=FoldText()
-endfunction
+"function! JavaScriptFold() 
+"    setl foldmethod=syntax
+"    setl foldlevelstart=1
+"    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+"
+"    function! FoldText()
+"        return substitute(getline(v:foldstart), '{.*', '{...}', '')
+"    endfunction
+"    setl foldtext=FoldText()
+"endfunction
 
 
 """"""""""""""""""""""""""""""
 " => CoffeeScript section
 """""""""""""""""""""""""""""""
-function! CoffeeScriptFold()
-    setl foldmethod=indent
-    setl foldlevelstart=1
-endfunction
-au FileType coffee call CoffeeScriptFold()
+"function! CoffeeScriptFold()
+"    setl foldmethod=indent
+"    setl foldlevelstart=1
+"endfunction
+"au FileType coffee call CoffeeScriptFold()
 
 au FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
@@ -791,3 +789,18 @@ set completeopt-=preview
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " redefine trigger key
 let g:user_emmet_leader_key=','
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-prettier
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Manually call prettier with pt
+"nmap <leader>pt <Plug>(Prettier)
+"
+"" Enable auto formatting of file without @format or @prettier tag
+"let g:prettier#autoformat = 1
+"
+"" Open quickfix on parsing error
+"let g:prettier#quickfix_enabled=0
+"
+"" Run vim-prettier not only before saving but after changing text or leaving insert mode
+""autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
