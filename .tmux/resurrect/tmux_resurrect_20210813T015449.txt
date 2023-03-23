@@ -1,9 +1,0 @@
-pane	0	0	:Vim	0	:	0	:/home/kevin/RailsTutorial/Chatter	1	vim	:zsh
-pane	0	1	:Shell	1	:*	0	:/home/kevin/RailsTutorial/Chatter	1	zsh	:zsh
-pane	0	2	:Server	0	:	0	:/home/kevin/RailsTutorial/Chatter	1	puma	:zsh
-pane	0	3	:Guard	0	:-	0	:/home/kevin/RailsTutorial/Chatter	1	ruby2.7	:zsh
-window	0	0	0	:	ba1e,283x62,0,0,1
-window	0	1	1	:*	ba1f,283x62,0,0,2
-window	0	2	0	:	b800,141x62,0,0,3
-window	0	3	0	:-	ba21,283x62,0,0,4
-state	0	
