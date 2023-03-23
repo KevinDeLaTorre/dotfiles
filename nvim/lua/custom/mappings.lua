@@ -4,13 +4,13 @@ end
 
 local M = {}
 --
--- -- Disable keybindings from core
--- M.disable = {
---   n = {
---     ["<leader>e"] = "",
---     ["<leader>n"] = "",
---   },
--- }
+-- Disable keybindings from core
+M.disable = {
+  n = {
+    ["<leader>e"] = {""},
+    ["<leader>n"] = {""},
+  },
+}
 
 M.general = {
   i = {
@@ -19,6 +19,10 @@ M.general = {
   n = {
     -- Key overrides
     [";"] = { ":", "Overrides colon with semicolon to easily use commands"},
+
+    -- Change tab to move to next block instead of buffer switch
+    ["<TAB>"] = {"}", "Disable tab switching buffers"},
+    ["<S-Tab>"] = {"{", "Disable tab switching buffers"},
 
     -- Movement
     ["<leader>g"] = { "gg <CR>", "Goes to given line"},

@@ -5,7 +5,7 @@ return {
   --------- Default Plugin Overrides -------
 
   -- File explorer
-  ["kyazdani42/nvim-tree.lua"] = {
+  ["nvim-tree/nvim-tree.lua"] = {
     override_options = overrides.nvimtree,
   },
 
@@ -26,7 +26,12 @@ return {
 
   ["nvim-telescope/telescope.nvim"] = {
     override_options = overrides.telescope,
+    -- config = function()
+    --   require("telescope").load_extension("ui-select")
+    -- end
   },
+
+  -- ["nvim-telescope/telescope-ui-select.nvim"] = {}, -- adds a ui for code actions
 
   -------- Custom Plugins ----------
 
@@ -58,10 +63,20 @@ return {
     end,
   },
 
-  -- Rails
+  -- Rails/Ruby
   ["tpope/vim-rails"] = {
     config = function()
       require "custom.plugins.vim-rails"
+    end,
+  },
+
+  ["RRethy/nvim-treesitter-endwise"] = { -- Adds ruby block completion
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        endwise = {
+          enable = true,
+        },
+      }
     end,
   },
 

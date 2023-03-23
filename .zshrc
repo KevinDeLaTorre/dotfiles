@@ -15,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -49,7 +49,8 @@ DISABLE_UPDATE_PROMPT="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
+unsetopt correct
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
@@ -95,6 +96,14 @@ else
   export EDITOR='vim'
 fi
 
+# # Start only a single ssh-agent on login
+# if [ ! -S ~/.ssh/ssh_auth_sock  ]; then
+#   eval `ssh-agent`
+#   ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+# fi
+# export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+# ssh-add -l > /dev/null || ssh-add
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -106,32 +115,72 @@ fi
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+#alias python="python3"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 eval "$(rbenv init -)"
 
 # nvm source lines
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}"  ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
+#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}"  ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#
 # Automatically load node version in project if nvmrc is present
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
+#autoload -U add-zsh-hook
+#load-nvmrc() {
+#  local node_version="$(nvm version)"
+#  local nvmrc_path="$(nvm_find_nvmrc)"
+#
+#  if [ -n "$nvmrc_path"  ]; then
+#    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+#
+#    if [ "$nvmrc_node_version" = "N/A"  ]; then
+#      nvm install
+#    elif [ "$nvmrc_node_version" != "$node_version"  ]; then
+#      nvm use
+#    fi
+#  elif [ "$node_version" != "$(nvm version default)"  ]; then
+#    echo "Reverting to nvm default version"
+#    nvm use default
+#  fi
+#}
+#add-zsh-hook chpwd load-nvmrc
+#load-nvmrc
 
-  if [ -n "$nvmrc_path"  ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+# zsh aliases
+alias sourcezsh="source ~/.zshrc"
 
-    if [ "$nvmrc_node_version" = "N/A"  ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version"  ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)"  ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+# Rails Aliases
+alias be="bundle exec"
+alias ber="bundle exec rake"
+
+# Docker Aliases
+alias dockerconsole="docker-compose run --rm console"
+alias dockerreset="dockerdown && dockerkillall && dockerpruneall"
+alias dockerdown="docker-compose down"
+alias dockerpruneall="dockerprunesystem && dockerpruneimages"
+alias dockerpruneimages="docker image prune --all"
+alias dockerprunesystem="docker system prune"
+alias dockerkillall="docker compose kill"
+
+# Converter
+alias mov2gif='ffmpeg -i $1 -pix_fmt rgb8 -r 10 $2 && gifsicle -O3 $2 -o $2'
+
+# Open scratch folder
+alias scratch='cd ~/scratch'
+
+####################
+# Mac
+####################
+alias brewupgrade="brew update && brew upgrade"
+
+####################
+# Work
+####################
+source ~/.zsh/work/.workzsh
+
+####################
+# Personal
+####################
+
+source ~/.zsh/personal/.zshrc

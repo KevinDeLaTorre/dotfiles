@@ -45,3 +45,29 @@ Open vim and run
 ```
 :PluginInstall
 ```
+
+---
+
+# Tmux
+
+prefix: CTRL+b
+
+### Install tpm (tmux plugin manager):
+'''
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+'''
+
+### Install plugins
+'''
+prefix + 'I'
+'''
+
+### Update Plugins
+'''
+prefix + 'U'
+'''
+
+### Remove/Uninstall plugins not in list
+'''
+prefix + 'alt' + 'u'
+'''
