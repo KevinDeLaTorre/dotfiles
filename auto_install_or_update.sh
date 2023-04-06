@@ -2,7 +2,7 @@
 # shellcheck disable=SC2086
 # shellcheck disable=SC3020
 
-COPY_TO_LOCAL_SCRIPT="update_local_from_git.sh"
+COPY_TO_LOCAL_SCRIPT="copy_git_to_local.sh"
 
 ####################
 # Installs

@@ -41,10 +41,13 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 Copy `.vimrc` to user home if you haven't done it already
 
 ### Plugin Install
-Open vim and run
+Open vim and run:
 ```
 :PluginInstall
 ```
+
+Note: This might take a sec, will probably hang on `nerdfonts` (because it's a big download/install)
+
 
 ---
 
