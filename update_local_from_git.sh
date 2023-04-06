@@ -10,16 +10,16 @@ CONFIG_DIRECTORY=$(realpath ~/.config)
 # Home directory dotfiles
 ####################
 
-DOTFILE_LOCATION=$(realpath ~) 
-DOTFILES=(".zshrc" ".bashrc" ".vimrc" ".tmux.conf")
+DOTFILE_LOCATION=$(realpath ~)
+$(set -- ".zshrc" ".bashrc" ".vimrc" ".tmux.conf")
 
-for file in ${DOTFILES[@]}; do
-	rsync -aiu "$DOTFILE_DIRECTORY/$file" "$DOTFILE_LOCATION" 
+for file in "$@"; do
+	rsync -aiu "$DOTFILE_DIRECTORY/$file" "$DOTFILE_LOCATION"
 done
 
 ####################
 # NVim
 ####################
 
-mkdir -p "$CONFIG_DIRECTORY/nvim/lua/custom";
+mkdir -p "$CONFIG_DIRECTORY/nvim/lua/custom"
 rsync -aiu "$DOTFILE_DIRECTORY/nvim/lua/custom" "$CONFIG_DIRECTORY/nvim/lua" --include custom/

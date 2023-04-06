@@ -48,37 +48,42 @@ install_main_programs() {
 	'Linux')
 		OS='Linux'
 		if ! command_exists sudo; then
-			echo "=== running apt-get install without sudo (because sudo not installed) ==="
+			echo "=== running apt-get install -y without sudo (because sudo not installed) ==="
 
-			apt-get install sudo build-essential procps curl file git
+			apt-get install -y zsh sudo wget build-essential procps curl file git rsync vim
 		else
 			echo "=== installing necessary packages ==="
-			sudo apt-get install build-essential procps curl file git
-		fi
-
-		if ! command_exists brew; then
-			echo "=== installing brew ==="
-			NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-			test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-			test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-			test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.bash_profile
-			echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
+			sudo apt-get install -y zsh wget build-essential procps curl file git rsync vim
 		fi
 
 		if ! program_exists oh-my-posh; then
 			echo "=== installing oh-my-posh ==="
-			brew install jandedobbeleer/oh-my-posh/oh-my-posh
+
+			sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
+			sudo chmod +x /usr/local/bin/oh-my-posh
+
+			mkdir ~/.poshthemes
+			wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
+			unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
+			chmod u+rw ~/.poshthemes/*.omp.*
+			rm ~/.poshthemes/themes.zip
+		fi
+
+		if ! program_exists vim; then
+			echo "=== installing vim ==="
+			sudo apt-get update
+			sudo apt-get install -y vim
 		fi
 
 		if ! program_exists tmux; then
 			echo "=== installing tmux ==="
-			brew install tmux
+			sudo apt-get update
+			sudo apt-get install -y tmux
 		fi
 
 		if ! program_exists nvim; then
 			echo "=== installing nvim ==="
-			brew install neovim
+			sudo apt install neovim
 		fi
 
 		install_all_plugins
@@ -88,15 +93,20 @@ install_main_programs() {
 
 		install_all_plugins
 
-		echo "=== brew update + upgrade ==="
-		brew update
-		brew upgrade
+		echo "=== apt-get update + upgrade ==="
+		sudo apt-get update
+		sudo apt-get upgrade
 		;;
 	'Darwin')
 		OS='Mac'
 		if ! command_exists brew; then
 			echo "=== installing brew ==="
 			NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+		fi
+
+		if ! command_exists rsync; then
+			echo "=== installing brew ==="
+			brew install rsync
 		fi
 
 		if ! program_exists oh-my-posh; then
@@ -107,6 +117,11 @@ install_main_programs() {
 		if ! program_exists tmux; then
 			echo "=== installing tmux ==="
 			brew install tmux
+		fi
+
+		if ! program_exists vim; then
+			echo "=== installing vim ==="
+			brew install vim
 		fi
 
 		if ! program_exists nvim; then
@@ -183,6 +198,7 @@ make_missing_dirs() {
 
 install_all_plugins() {
 	echo "=== installing all plugins ==="
+	install_oh_my_zsh
 	install_vim_plugins
 	install_nvim_plugins
 	install_tmux_plugins
