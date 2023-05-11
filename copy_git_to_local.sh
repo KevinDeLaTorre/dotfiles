@@ -11,7 +11,7 @@ CONFIG_DIRECTORY=$(realpath ~/.config)
 ####################
 
 DOTFILE_LOCATION=$(realpath ~)
-$(set -- ".zshrc" ".bashrc" ".vimrc" ".tmux.conf" ".gitignore_global")
+$(set -- ".zshrc" ".bashrc" ".vimrc" ".tmux.conf" ".gitignore_global" ".rubocop.yml")
 
 for file in "$@"; do
 	rsync -aiu "$DOTFILE_DIRECTORY/$file" "$DOTFILE_LOCATION"

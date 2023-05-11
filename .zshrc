@@ -158,9 +158,9 @@ alias ber="bundle exec rake"
 alias dockerconsole="docker-compose run --rm console"
 alias dockerreset="dockerdown && dockerkillall && dockerpruneall"
 alias dockerdown="docker-compose down"
-alias dockerpruneall="dockerprunesystem && dockerpruneimages"
 alias dockerpruneimages="docker image prune --all"
 alias dockerprunesystem="docker system prune"
+alias dockerpruneall="dockerprunesystem && dockerpruneimages"
 alias dockerkillall="docker compose kill"
 
 # Converter

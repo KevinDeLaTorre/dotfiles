@@ -61,11 +61,11 @@ M.null_ls = {
     -- Disable the default floating diagnostic
     ["<leader>f"] = { "", "prefix" },
 
-    ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "LSP format entire file" },
+    ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "LSP format entire file" },
   },
 
   v = {
-    ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "LSP format selected" },
+    ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "LSP format selected" },
   }
 
 }
