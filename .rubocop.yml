@@ -85,6 +85,9 @@ Style/StringLiterals:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
+Style/SymbolProc:
+  AllowMethodsWithArguments: true
+
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
 
@@ -95,4 +98,5 @@ Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
 Style/WordArray:
-  EnforcedStyle: brackets
+  Enabled: false
+  # EnforcedStyle: brackets

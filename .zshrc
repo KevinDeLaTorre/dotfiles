@@ -11,6 +11,9 @@ eval "$(oh-my-posh --init --shell zsh --config ~/.poshthemes/kevin.omp.json)"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Switch docker socket to colima
+export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -161,10 +164,10 @@ alias dockerdown="docker-compose down"
 alias dockerpruneimages="docker image prune --all"
 alias dockerprunesystem="docker system prune"
 alias dockerpruneall="dockerprunesystem && dockerpruneimages"
-alias dockerkillall="docker compose kill"
+alias dockerkillall="docker-compose kill"
 
 # Converter
-alias mov2gif='ffmpeg -i $1 -pix_fmt rgb8 -r 10 $2 && gifsicle -O3 $2 -o $2'
+alias mov2gif='ffmpeg -i $1 -r 10 $2 && gifsicle -O3 $2 -o $2'
 
 # Open scratch folder
 alias scratch='cd ~/scratch'

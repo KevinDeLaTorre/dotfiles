@@ -14,7 +14,7 @@ local servers = {
     "typescript-language-server",
     "deno",
     "eslint-lsp",
-    "emmet-ls",
+    "emmet_ls",
     "json-lsp",
     "solargraph",
     "yaml-language-server",

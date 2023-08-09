@@ -35,6 +35,15 @@ return {
 
   -------- Custom Plugins ----------
 
+  -- Autocomplete
+  ["zbirenbaum/copilot.lua"] = {
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require "custom.plugins.copilot"
+    end,
+  },
+
   -- Editor Config
   ["gpanders/editorconfig.nvim"] = {
     config = function()
