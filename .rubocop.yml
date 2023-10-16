@@ -20,7 +20,10 @@ Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
 Layout/HeredocIndentation:
-  Enabled: false
+  Enabled: true
+
+Layout/LineLength:
+  Max: 130
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
@@ -38,6 +41,9 @@ Metrics/MethodLength:
   Enabled: false
 
 Metrics/ParameterLists:
+  Enabled: false
+
+Style/ConditionalAssignment:
   Enabled: false
 
 Style/Documentation:

@@ -1,11 +1,11 @@
 require('copilot').setup({
   panel = {
-    enabled = false,
+    enabled = true,
     auto_refresh = true,
     keymap = {
       jump_prev = "[[",
       jump_next = "]]",
-      accept = "<CR>",
+      accept = "<TAB>",
       refresh = "gr",
       open = "<M-CR>"
     },
