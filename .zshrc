@@ -163,7 +163,9 @@ alias dockerreset="dockerdown && dockerkillall && dockerpruneall"
 alias dockerdown="docker-compose down"
 alias dockerpruneimages="docker image prune --all"
 alias dockerprunesystem="docker system prune"
+alias dockerprunevolumes="docker volume rm $(docker volume ls -qf dangling=true)"
 alias dockerpruneall="dockerprunesystem && dockerpruneimages"
+alias dockerpruneallforce="dockerpruneall && dockerprunevolumes"
 alias dockerkillall="docker-compose kill"
 
 # Converter
