@@ -43,6 +43,9 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Enabled: false
 
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
 Style/ConditionalAssignment:
   Enabled: false
 
