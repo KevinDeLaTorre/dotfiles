@@ -2,6 +2,14 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM=xterm-256color
 
+# Start only a single ssh-agent on login
+if [ ! -S ~/.ssh/ssh_auth_sock  ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add
+
 # Set colorscheme for terminal
 eval "$(oh-my-posh --init --shell zsh --config ~/.poshthemes/kevin.omp.json)"
 
