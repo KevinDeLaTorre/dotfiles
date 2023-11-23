@@ -2,7 +2,7 @@ local M = {}
 
 -- local override = require("custom.override")
 
-M.plugins = require "custom.plugins"
+M.plugins = "custom.plugins"
 
 -- M.plugins = {
 --   options = {
@@ -34,6 +34,6 @@ M.ui = {
 --    end,
 -- }
 
-M.mappings = require("custom.mappings")
+M.mappings = require "custom.mappings"
 
 return M
