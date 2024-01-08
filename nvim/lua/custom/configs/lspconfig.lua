@@ -5,29 +5,24 @@ local lspconfig = require "lspconfig"
 
 local servers = {
     -- lua stuff
-    "lua-language-server",
-    "stylua",
+    "lua_ls",
 
     -- web dev
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
-    "eslint-lsp",
+    "cssls",
+    "html",
+    "eslint",
     "emmet_ls",
-    "json-lsp",
+    "jsonls",
     "solargraph",
-    "yaml-language-server",
+    "yamlls",
     "sqlls",
 
     -- python
     "pyright",
 
     -- shell
-    "shfmt",
-    "bash-language-server",
-    "shellcheck",
-    "dockerfile-language-server",
+    "bashls",
+    "dockerls",
 }
 
 for _, lsp in ipairs(servers) do

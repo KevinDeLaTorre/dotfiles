@@ -61,12 +61,20 @@ return {
   },
 
   -- Format and Linting
+  -- {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   after = "nvim-lspconfig",
+  --   config = function()
+  --     require "custom.configs.null-ls"
+  --   end,
+  -- },
+
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "stevearc/conform.nvim",
     after = "nvim-lspconfig",
-    config = function()
-      require "custom.configs.null-ls"
-    end,
+    config = function ()
+      require "custom.configs.conform"
+    end
   },
 
   {

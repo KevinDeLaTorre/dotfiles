@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 export TERM=xterm-256color
 
 # Start only a single ssh-agent on login
@@ -165,13 +166,19 @@ alias sourcezsh="source ~/.zshrc"
 alias be="bundle exec"
 alias ber="bundle exec rake"
 
+# Docker functions
+alldockervolumes() {
+  docker volume ls -qf dangling=true
+}
+
 # Docker Aliases
 alias dockerconsole="docker-compose run --rm console"
 alias dockerreset="dockerdown && dockerkillall && dockerpruneall"
+alias dockerresetforce="dockerdown && dockerkillall && dockerpruneallforce"
 alias dockerdown="docker-compose down"
 alias dockerpruneimages="docker image prune --all"
 alias dockerprunesystem="docker system prune"
-alias dockerprunevolumes="docker volume rm $(docker volume ls -qf dangling=true)"
+alias dockerprunevolumes='docker volume rm $(alldockervolumes)'
 alias dockerpruneall="dockerprunesystem && dockerpruneimages"
 alias dockerpruneallforce="dockerpruneall && dockerprunevolumes"
 alias dockerkillall="docker-compose kill"
@@ -197,3 +204,4 @@ source ~/.zsh/work/.workzsh
 ####################
 
 source ~/.zsh/personal/.zshrc
+export PATH="/usr/local/opt/postgresql@13/bin:$PATH"

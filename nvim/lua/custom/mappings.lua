@@ -1,5 +1,5 @@
 local function termcodes(str)
-   return vim.api.nvim_replace_termcodes(str, true, true, true)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local M = {}
@@ -7,29 +7,28 @@ local M = {}
 -- Disable keybindings from core
 M.disable = {
   n = {
-    ["<leader>e"] = {""},
-    ["<leader>n"] = {""},
+    ["<leader>e"] = { "" },
+    ["<leader>n"] = { "" },
   },
 }
 
 M.general = {
-  i = {
-  },
+  i = {},
 
   n = {
     -- Key overrides
-    [";"] = { ":", "Overrides colon with semicolon to easily use commands"},
+    [";"] = { ":", "Overrides colon with semicolon to easily use commands" },
 
     -- Change tab to move to next block instead of buffer switch
-    ["<TAB>"] = {"}", "Disable tab switching buffers"},
-    ["<S-Tab>"] = {"{", "Disable tab switching buffers"},
+    ["<TAB>"] = { "}", "Disable tab switching buffers" },
+    ["<S-Tab>"] = { "{", "Disable tab switching buffers" },
 
     -- Movement
-    ["<leader>g"] = { "gg <CR>", "Goes to given line"},
+    ["<leader>g"] = { "gg <CR>", "Goes to given line" },
 
     -- Fast Saving
-    ["<leader>w"] = { "<cmd> w! <CR>", "Force saves current file"},
-    ["<leader>wa"] = { "<cmd> wa! <CR>", "Force saves all files"},
+    ["<leader>w"] = { "<cmd> w! <CR>", "Force saves current file" },
+    ["<leader>wa"] = { "<cmd> wa! <CR>", "Force saves all files" },
 
     -- Buffers
     ["<leader>bd"] = { "<cmd> bdelete <CR>", "Deletes current buffer" },
@@ -41,12 +40,12 @@ M.general = {
 
   t = {
     ["<Esc>"] = { termcodes "<C-\\><C-N>", "Puts terminal into normal mode" },
-  }
+  },
 }
 
 M.nvimtree = {
   n = {
-    ["<leader>nn"] = { "<cmd> NvimTreeToggle <CR>", "Toggles Nvimtree"},
+    ["<leader>nn"] = { "<cmd> NvimTreeToggle <CR>", "Toggles Nvimtree" },
   },
 }
 
@@ -56,18 +55,26 @@ M.telescope = {
   },
 }
 
-M.null_ls = {
+-- M.null_ls = {
+--   n = {
+--     -- Disable the default floating diagnostic
+--     ["<leader>f"] = { "", "prefix" },
+--
+--     ["<leader>lf"] = { "<cmd>lua require('conform').format()<CR>", "LSP format entire file" },
+--   },
+--
+--   v = {
+--     ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "LSP format selected" },
+--   },
+-- }
+
+M.conform = {
   n = {
-    -- Disable the default floating diagnostic
-    ["<leader>f"] = { "", "prefix" },
-
-    ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "LSP format entire file" },
+    ["<leader>lf"] = { "<cmd>lua require('conform').format({async = true, lsp_fallback = true,timeout_ms = 500})<CR>", "LSP format entire file" },
   },
-
   v = {
-    ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "LSP format selected" },
+    ["<leader>lf"] = { "<cmd>lua require('conform').format({async = true, lsp_fallback = true,timeout_ms = 500})<CR>", "LSP format selected" },
   }
-
 }
 
 M.BufOnly = {

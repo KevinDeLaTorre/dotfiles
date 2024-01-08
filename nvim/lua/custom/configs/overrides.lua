@@ -107,23 +107,24 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "eslint-lsp",
-    "emmet-ls",
+    "emmet-language-server",
     "json-lsp",
     "solargraph",
+    "rubocop",
     "yaml-language-server",
     "sqlls",
+    "prettierd",
+    "prettier",
 
     -- python
     "pyright",
-    "pylint",
     "black",
     "isort",
 
     -- shell
-    "shfmt",
     "bash-language-server",
-    "shellcheck",
     "dockerfile-language-server",
+    "shfmt",
   },
 
   automatic_installation = true,
