@@ -43,8 +43,8 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Enabled: false
 
-Style/BlockDelimiters:
-  EnforcedStyle: braces_for_chaining
+Style/ArgumentsForwarding:
+  UseAnonymousForwarding: false
 
 Style/ConditionalAssignment:
   Enabled: false
@@ -63,6 +63,9 @@ Style/ExplicitBlockArgument:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: either
 
 Style/IfUnlessModifier:
   Enabled: false
