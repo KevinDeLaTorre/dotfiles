@@ -21,5 +21,5 @@ done
 # NVim
 ####################
 
-mkdir -p "$CONFIG_DIRECTORY/nvim/lua/custom"
-rsync -aiu "$DOTFILE_DIRECTORY/nvim/lua/custom" "$CONFIG_DIRECTORY/nvim/lua" --include custom/
+mkdir -p "$CONFIG_DIRECTORY/nvim"
+rsync -aiu "$DOTFILE_DIRECTORY/nvim/lua" "$CONFIG_DIRECTORY/nvim" --include lua/

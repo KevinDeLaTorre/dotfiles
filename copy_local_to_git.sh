@@ -21,7 +21,7 @@ done
 # NVim
 ####################
 NVIM_DIRECTORY=$(realpath "$CONFIG_DIRECTORY"/nvim)
-NVIM_DOTFILES_CUSTOM_DIRECTORY="$DOTFILE_DIRECTORY/nvim/lua"
+NVIM_DOTFILES_CUSTOM_DIRECTORY="$DOTFILE_DIRECTORY/nvim"
 
 mkdir -p "$NVIM_DOTFILES_CUSTOM_DIRECTORY"; # In case folder doesn't exist
-rsync -aiu "$NVIM_DIRECTORY/lua/custom" "$NVIM_DOTFILES_CUSTOM_DIRECTORY" --include custom/
+rsync -aiu "$NVIM_DIRECTORY/lua" "$NVIM_DOTFILES_CUSTOM_DIRECTORY" --include lua/
