@@ -22,4 +22,4 @@ done
 ####################
 
 mkdir -p "$CONFIG_DIRECTORY/nvim"
-rsync -aiu "$DOTFILE_DIRECTORY/nvim/lua" "$CONFIG_DIRECTORY/nvim" --include lua/
+rsync -aiu "$DOTFILE_DIRECTORY/nvim" "$CONFIG_DIRECTORY" --include nvim/
