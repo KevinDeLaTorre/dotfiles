@@ -6,4 +6,7 @@ vim.g.mapleader = ","
 
 vim.wo.relativenumber = false
 
+-- Disable LazyVim auto format
+vim.g.autoformat = false
+
 colorscheme = "dracula"
