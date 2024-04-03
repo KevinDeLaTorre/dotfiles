@@ -79,6 +79,9 @@ Style/NegatedIf:
 Style/NumericLiterals:
   Enabled: false
 
+Style/NumericLiteralPrefix:
+  EnforcedOctalStyle: zero_only
+
 Style/RaiseArgs:
   Enabled: false
 
