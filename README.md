@@ -1,4 +1,5 @@
-# Setup #
+# Setup
+
 - Install Oh-my-zsh
 - Install Oh-my-posh
 - Install tmux
@@ -6,28 +7,20 @@
 - Copy all files from dotfiles to your home directory
 
 # NeoVim
-- Install NeoVim:
 
-### Install NVChad (A NeoVim preset config)
-
-Linux/macos (UNIX)
-```
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-```
-
-Windows
-```
-git clone https://github.com/NvChad/NvChad $HOME\AppData\Local\nvim --depth 1 && nvim
-```
-
-### Config
-Copy `.config` folder to user home if you haven't done it already
-
-### Plugin Install
-Open nvim and run
-```
-:PackerInstall
-```
+- Install NeoVim
+  - mac: `brew install neovim`
+  - ubuntu:
+    ```
+    sudo apt-get install software-properties-common
+    sudo add-apt-repository ppa:neovim-ppa/unstable
+    sudo apt-get update
+    sudo apt-get install neovim
+    ```
+- copy `nvim` folder to `~/.config`
+- run neovim with `nvim`
+  - on initial run it should install plugins
+- run `:checkhealth lazy`
 
 ---
 
@@ -38,16 +31,18 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 ### Config
+
 Copy `.vimrc` to user home if you haven't done it already
 
 ### Plugin Install
+
 Open vim and run:
+
 ```
 :PluginInstall
 ```
 
 Note: This might take a sec, will probably hang on `nerdfonts` (because it's a big download/install)
-
 
 ---
 
@@ -61,16 +56,19 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 '''
 
 ### Install plugins
+
 '''
 prefix + 'I'
 '''
 
 ### Update Plugins
+
 '''
 prefix + 'U'
 '''
 
 ### Remove/Uninstall plugins not in list
+
 '''
 prefix + 'alt' + 'u'
 '''
