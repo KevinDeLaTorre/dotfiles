@@ -15,7 +15,6 @@ return {
       "eslint-lsp",
       "emmet-language-server",
       "json-lsp",
-      "solargraph",
       "rubocop",
       "yaml-language-server",
       "sqlls",

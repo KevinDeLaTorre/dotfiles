@@ -1,5 +1,6 @@
 AllCops:
   NewCops: enable
+  ActiveSupportExtensionsEnabled: true
 
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
@@ -31,6 +32,12 @@ Layout/MultilineMethodCallIndentation:
 Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
 Metrics/BlockLength:
   Enabled: false
 
@@ -41,6 +48,12 @@ Metrics/MethodLength:
   Enabled: false
 
 Metrics/ParameterLists:
+  Enabled: false
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Style/Alias:
   Enabled: false
 
 Style/ArgumentsForwarding:
@@ -76,8 +89,10 @@ Style/Lambda:
 Style/NegatedIf:
   EnforcedStyle: postfix
 
+# Adds underscores in between every 3 zeros i.e. 10_000_000
 Style/NumericLiterals:
-  Enabled: false
+  Enabled: true
+  AllowedNumbers: ['d4'] # only start applying after 9,999
 
 Style/NumericLiteralPrefix:
   EnforcedOctalStyle: zero_only
@@ -93,6 +108,9 @@ Style/RescueModifier:
 
 Style/RescueStandardError:
   Enabled: false
+
+Style/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
 
 Style/StringLiterals:
   Enabled: false

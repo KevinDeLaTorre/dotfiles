@@ -11,8 +11,8 @@ fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
 
-# Set colorscheme for terminal
 eval "$(oh-my-posh --init --shell zsh --config ~/.poshthemes/kevin.omp.json)"
+# Set colorscheme for terminal
 
 # Start in home directory
 # cd ~
@@ -130,7 +130,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 #alias python="python3"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+# export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH" # Sets ruby to 2.6.0
 eval "$(rbenv init -)"
 
 # nvm source lines
@@ -193,6 +193,11 @@ alias scratch='cd ~/scratch'
 # Mac
 ####################
 alias brewupgrade="brew update && brew upgrade"
+alias updatenvim="echo 'Updating nvim...' && nvim --headless '+Lazy! sync' +qa"
+
+alias updatecopilot="echo 'Updating CLI copilot...' && gh extension upgrade gh-copilot"
+
+alias updateall="updatenvim && updatecopilot && brewupgrade"
 
 ####################
 # Work

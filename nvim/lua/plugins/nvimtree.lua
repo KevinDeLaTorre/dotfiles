@@ -35,6 +35,7 @@ return {
 
       view = {
         side = "right", -- Moves nvimtree to the right side
+        adaptive_size = true,
       },
 
       actions = {
