@@ -25,6 +25,7 @@ Layout/HeredocIndentation:
 
 Layout/LineLength:
   Max: 130
+  Enabled: false
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
@@ -50,6 +51,9 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Enabled: false
 
+Naming/MethodParameterName:
+  MinNameLength: 2
+
 Naming/VariableNumber:
   EnforcedStyle: snake_case
 
@@ -58,6 +62,9 @@ Style/Alias:
 
 Style/ArgumentsForwarding:
   UseAnonymousForwarding: false
+
+Style/BlockDelimiters:
+  AllowedPatterns: ['expect']
 
 Style/ConditionalAssignment:
   Enabled: false
@@ -91,7 +98,7 @@ Style/NegatedIf:
 
 # Adds underscores in between every 3 zeros i.e. 10_000_000
 Style/NumericLiterals:
-  Enabled: true
+  Enabled: false
   AllowedNumbers: ['d4'] # only start applying after 9,999
 
 Style/NumericLiteralPrefix:
@@ -128,7 +135,8 @@ Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
 Style/TrailingCommaInArguments:
-  EnforcedStyleForMultiline: comma
+  Enabled: false
+  # EnforcedStyleForMultiline: comma
 
 Style/WordArray:
   Enabled: false

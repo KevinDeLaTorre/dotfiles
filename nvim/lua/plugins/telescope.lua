@@ -4,7 +4,7 @@ return {
   keys = {
     { "<leader>fr", false },
     { "<leader>o", "<cmd> :Telescope buffers <CR>", desc = "Show current buffers" },
-    { "<leader>fo", "<cmd> :Telescope oldfiles <CR>", desc = "Show recent files" },
+    { "<leader>fo", "<cmd> :Telescope oldfiles<CR>", desc = "Show recent files" },
     { "<leader>ff", "<cmd> :Telescope find_files<CR>", desc = "Find files" },
     { "<leader>fw", "<cmd> :Telescope live_grep<CR>", desc = "Live Grep" },
   },
@@ -46,6 +46,8 @@ return {
         initial_mode = "insert",
         hidden = true,
       },
+    },
+    extensions = {
     },
   },
 }

@@ -103,9 +103,9 @@ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 # # Start only a single ssh-agent on login
@@ -125,8 +125,8 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 #alias python="python3"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -160,7 +160,7 @@ eval "$(rbenv init -)"
 #load-nvmrc
 
 # zsh aliases
-alias sourcezsh="source ~/.zshrc"
+alias sourcezsh="source ~/.zshrc && source ~/.zshenv"
 
 # Rails Aliases
 alias be="bundle exec"
