@@ -20,6 +20,7 @@ return {
       "sqlls",
       "prettierd",
       "prettier",
+      "fixjson",
 
       -- python
       "pyright",
@@ -30,6 +31,9 @@ return {
       "bash-language-server",
       "dockerfile-language-server",
       "shfmt",
+
+      -- haml
+      "haml-lint"
     },
 
     automatic_installation = true,

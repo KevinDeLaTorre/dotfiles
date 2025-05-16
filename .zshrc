@@ -128,6 +128,7 @@ fi
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 #alias python="python3"
+#
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 # export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH" # Sets ruby to 2.6.0
@@ -136,10 +137,16 @@ eval "$(rbenv init -)"
 # nvm source lines
 #export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}"  ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 #[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-#
-# Automatically load node version in project if nvmrc is present
-#autoload -U add-zsh-hook
-#load-nvmrc() {
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+export ANDROID_HOME=/Users/kevin.delatorre/Library/Android/sdk
+
+# # Automatically load node version in project if nvmrc is present
+# autoload -U add-zsh-hook
+# load-nvmrc() {
 #  local node_version="$(nvm version)"
 #  local nvmrc_path="$(nvm_find_nvmrc)"
 #
@@ -155,9 +162,9 @@ eval "$(rbenv init -)"
 #    echo "Reverting to nvm default version"
 #    nvm use default
 #  fi
-#}
-#add-zsh-hook chpwd load-nvmrc
-#load-nvmrc
+# }
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
 
 # zsh aliases
 alias sourcezsh="source ~/.zshrc && source ~/.zshenv"
@@ -196,8 +203,9 @@ alias brewupgrade="brew update && brew upgrade"
 alias updatenvim="echo 'Updating nvim...' && nvim --headless '+Lazy! sync' +qa"
 
 alias updatecopilot="echo 'Updating CLI copilot...' && gh extension upgrade gh-copilot"
+alias updategcloud="gcloud components update --quiet"
 
-alias updateall="updatenvim && updatecopilot && brewupgrade"
+alias updateall="updatenvim && updatecopilot && updategcloud && brewupgrade"
 
 ####################
 # Work

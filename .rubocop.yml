@@ -33,6 +33,9 @@ Layout/MultilineMethodCallIndentation:
 Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
 Lint/UnusedMethodArgument:
   Enabled: false
 
@@ -115,9 +118,6 @@ Style/RescueModifier:
 
 Style/RescueStandardError:
   Enabled: false
-
-Style/SpaceInLambdaLiteral:
-  EnforcedStyle: require_space
 
 Style/StringLiterals:
   Enabled: false

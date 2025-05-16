@@ -39,11 +39,15 @@ return {
       -- Webdev
       javascript = { { "prettierd", "prettier" } },
 
+      json = { "fixjson" },
+
       -- Ruby
       ruby = { "rubocop" },
 
       -- Shell
       sh = { "shfmt" },
+
+      haml = { "haml-lint"}
     },
     formatters = {
       rubocop = {
