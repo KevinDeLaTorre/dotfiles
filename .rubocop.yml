@@ -2,6 +2,9 @@ AllCops:
   NewCops: enable
   ActiveSupportExtensionsEnabled: true
 
+Bundler/OrderedGems:
+  Enabled: false
+
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
 
@@ -35,6 +38,12 @@ Layout/ParameterAlignment:
 
 Layout/SpaceInLambdaLiteral:
   EnforcedStyle: require_space
+
+Layout/TrailingEmptyLines:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
 
 Lint/UnusedMethodArgument:
   Enabled: false

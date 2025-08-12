@@ -212,9 +212,14 @@ alias updateall="updatenvim && updatecopilot && updategcloud && brewupgrade"
 ####################
 source ~/.zsh/work/.workzsh
 
+alias gauth="gcloud auth application-default login"
+
 ####################
 # Personal
 ####################
 
 source ~/.zsh/personal/.zshrc
 export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
+export PATH="/Users/kevin.delatorre/.local/bin:$PATH"
+
+. "$HOME/.local/bin/env"

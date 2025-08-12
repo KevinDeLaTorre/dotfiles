@@ -11,6 +11,7 @@ return {
       "css-lsp",
       "html-lsp",
       "typescript-language-server",
+
       -- "deno",
       "eslint-lsp",
       "emmet-language-server",

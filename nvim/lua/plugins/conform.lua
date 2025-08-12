@@ -37,7 +37,7 @@ return {
       python = { "isort", "black" },
 
       -- Webdev
-      javascript = { { "prettierd", "prettier" } },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
 
       json = { "fixjson" },
 

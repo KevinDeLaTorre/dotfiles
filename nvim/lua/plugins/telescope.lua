@@ -41,13 +41,15 @@ return {
         initial_mode = "insert",
         hidden = true,
       },
-
+      grep_string = {
+        additional_args = { "--hidden" },
+      },
       live_grep = {
         initial_mode = "insert",
         hidden = true,
+        additional_args = { "--hidden" },
       },
     },
-    extensions = {
-    },
+    extensions = {},
   },
 }
